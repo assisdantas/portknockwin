@@ -1,0 +1,4 @@
+[MikrotikTurboFibra]
+host=186.251.182.122
+ports=16121 25102 11093
+program=E:\Program Files\winbox64.exe

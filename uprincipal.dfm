@@ -5,7 +5,7 @@ object frmMain: TfrmMain
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Port Knocking'
-  ClientHeight = 368
+  ClientHeight = 443
   ClientWidth = 342
   Color = clBtnFace
   DoubleBuffered = True
@@ -4774,7 +4774,7 @@ object frmMain: TfrmMain
   end
   object Button1: TButton
     Left = 247
-    Top = 133
+    Top = 205
     Width = 75
     Height = 25
     Caption = 'Knock'
@@ -4784,16 +4784,17 @@ object frmMain: TfrmMain
   end
   object ProgressBar1: TProgressBar
     Left = 0
-    Top = 343
+    Top = 418
     Width = 342
     Height = 25
     Align = alBottom
     MarqueeInterval = 1
     TabOrder = 3
+    ExplicitTop = 343
   end
   object Button2: TButton
     Left = 247
-    Top = 164
+    Top = 236
     Width = 75
     Height = 25
     Caption = 'Save'
@@ -4802,7 +4803,7 @@ object frmMain: TfrmMain
   end
   object Button3: TButton
     Left = 247
-    Top = 195
+    Top = 267
     Width = 75
     Height = 25
     Caption = 'Delete'
@@ -4852,7 +4853,7 @@ object frmMain: TfrmMain
   end
   object GroupBox2: TGroupBox
     Left = 8
-    Top = 119
+    Top = 191
     Width = 233
     Height = 105
     Caption = 'Saved hosts'
@@ -4866,11 +4867,13 @@ object frmMain: TfrmMain
       ItemHeight = 13
       TabOrder = 0
       OnClick = ListBox1Click
+      ExplicitLeft = 4
+      ExplicitTop = -16
     end
   end
   object GroupBox3: TGroupBox
     Left = 8
-    Top = 228
+    Top = 300
     Width = 313
     Height = 105
     Caption = 'Log output'
@@ -4885,26 +4888,60 @@ object frmMain: TfrmMain
       TabOrder = 0
     end
   end
+  object GroupBox4: TGroupBox
+    Left = 8
+    Top = 119
+    Width = 314
+    Height = 66
+    Caption = 'When finished open program'
+    TabOrder = 7
+    object lbledtprogram: TLabeledEdit
+      Left = 56
+      Top = 24
+      Width = 171
+      Height = 21
+      EditLabel.Width = 43
+      EditLabel.Height = 13
+      EditLabel.Caption = 'Execute:'
+      LabelPosition = lpLeft
+      TabOrder = 0
+    end
+    object Button4: TButton
+      Left = 233
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = 'Find'
+      TabOrder = 1
+      OnClick = Button4Click
+    end
+  end
   object IdTCPClient1: TIdTCPClient
     ConnectTimeout = 1
     Port = 0
     ReadTimeout = -1
     Left = 160
-    Top = 248
+    Top = 320
   end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
     Left = 232
-    Top = 248
+    Top = 320
   end
   object IdAntiFreeze1: TIdAntiFreeze
     Left = 56
-    Top = 248
+    Top = 320
   end
   object IdUDPClient1: TIdUDPClient
     Port = 0
     Left = 128
-    Top = 248
+    Top = 320
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'All files supported|*.exe; *.bat; *.cmd; *.jar'
+    Title = 'Select program'
+    Left = 192
+    Top = 320
   end
 end

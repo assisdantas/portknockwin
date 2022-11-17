@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, Vcl.ComCtrls,
   IdAntiFreezeBase, IdAntiFreeze, Vcl.Imaging.jpeg, Vcl.Imaging.pngimage,
-  IdUDPBase, IdUDPClient, IniFiles;
+  IdUDPBase, IdUDPClient, IniFiles, WinApi.ShellAPI;
 
 type
   aStrings = Array Of String; // Utilize um Tipo de Matriz para Parâmetros de Rotinas
@@ -29,15 +29,21 @@ type
     ListBox1: TListBox;
     GroupBox3: TGroupBox;
     Memo1: TMemo;
+    GroupBox4: TGroupBox;
+    lbledtprogram: TLabeledEdit;
+    Button4: TButton;
+    OpenDialog1: TOpenDialog;
     procedure Button1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure loadaddrs;
+    procedure clearapp;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListBox1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -116,6 +122,7 @@ begin
   arqini := TIniFile.Create(dirapp+'addrs.list');
   arqini.WriteString(lbledtname.Text, 'host', lbledthost.Text);
   arqini.WriteString(lbledtname.Text, 'ports', lbledtports.Text);
+  arqini.WriteString(lbledtname.Text, 'program', lbledtprogram.Text);
   arqini.Free;
   loadaddrs();
 end;
@@ -131,16 +138,28 @@ begin
 arqini.EraseSection(savedname);
 arqini.Free;
 
-savedname := '';
-lbledtName.Clear;
-lbledtHost.Clear;
-lbledtPorts.Clear;
-
+clearapp();
 loadaddrs();
 end else
 begin
   Application.MessageBox('First select a saved item.', 'Select item', MB_ICONASTERISK + MB_OK);
 end;
+end;
+
+procedure TfrmMain.Button4Click(Sender: TObject);
+begin
+if OpenDialog1.Execute then
+lbledtprogram.Text := OpenDialog1.FileName;
+end;
+
+procedure TfrmMain.clearapp;
+begin
+savedname := '';
+lbledtName.Clear;
+lbledtHost.Clear;
+lbledtPorts.Clear;
+lbledtProgram.Clear;
+memo1.Clear;
 end;
 
 procedure TfrmMain.loadaddrs;
@@ -166,6 +185,7 @@ begin
   arqini := TIniFile.Create(dirapp+'addrs.list');
   arqini.Free;
 end;
+clearapp();
 loadaddrs();
 lbledthost.SetFocus;
 end;
@@ -184,8 +204,9 @@ lbledtName.Text := savedname;
 
 arqini := TIniFile.Create(dirapp+'addrs.list');
 
-lbledthost.Text := arqini.ReadString(savedname, 'host', 'Não foi possível ler o arquivo');
-lbledtports.Text := arqini.ReadString(savedname, 'ports', 'Não foi possível ler o arquivo');
+lbledthost.Text := arqini.ReadString(savedname, 'host', 'Could not read the file');
+lbledtports.Text := arqini.ReadString(savedname, 'ports', 'Could not read the file');
+lbledtprogram.Text := arqini.ReadString(savedname, 'program', 'Could not read the file');
 
 arqini.Free;
 end;
@@ -210,6 +231,12 @@ begin
   Timer1.Enabled := False;
   memo1.Lines.Add('[' + FormatDateTime('hh:mm:ss', now) + '] Knocking complete! ' + IntToStr(knostep) + ' packets send.');
   Application.MessageBox('Port knock completed.', 'Completed', MB_ICONINFORMATION + MB_OK);
+
+  if (lbledtprogram.Text <> '') then
+  begin
+    ShellExecute(Application.Handle, 'open', PChar(lbledtprogram.Text), nil, nil, SW_SHOWNORMAL);
+    memo1.Lines.Add('[' + FormatDateTime('hh:mm:ss', now) + '] Open program ');
+  end;
 end;
 
 end;
