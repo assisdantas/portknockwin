@@ -4790,8 +4790,6 @@ object frmMain: TfrmMain
     Align = alBottom
     MarqueeInterval = 1
     TabOrder = 3
-    ExplicitTop = 321
-    ExplicitWidth = 330
   end
   object Button2: TButton
     Left = 247
@@ -4868,10 +4866,6 @@ object frmMain: TfrmMain
       ItemHeight = 13
       TabOrder = 0
       OnClick = ListBox1Click
-      ExplicitLeft = 1
-      ExplicitTop = 18
-      ExplicitWidth = 232
-      ExplicitHeight = 87
     end
   end
   object GroupBox3: TGroupBox
@@ -4889,10 +4883,6 @@ object frmMain: TfrmMain
       Align = alClient
       ScrollBars = ssVertical
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 16
-      ExplicitWidth = 313
-      ExplicitHeight = 89
     end
   end
   object IdTCPClient1: TIdTCPClient

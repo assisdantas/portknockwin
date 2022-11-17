@@ -13,8 +13,10 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     Label5: TLabel;
+    Label6: TLabel;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,5 +29,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure Tfrmabout.Button1Click(Sender: TObject);
+begin
+Close;
+end;
 
 end.

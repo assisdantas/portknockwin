@@ -16,7 +16,7 @@ object frmabout: Tfrmabout
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 8
+    Left = 233
     Top = 8
     Width = 44
     Height = 44
@@ -160,7 +160,7 @@ object frmabout: Tfrmabout
       6082}
   end
   object Label1: TLabel
-    Left = 58
+    Left = 8
     Top = 8
     Width = 150
     Height = 13
@@ -173,31 +173,41 @@ object frmabout: Tfrmabout
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 58
+    Left = 8
     Top = 27
-    Width = 58
+    Width = 78
     Height = 13
-    Caption = 'Version: 1.0'
+    Caption = 'Version: 1.0.0.1'
   end
   object Label3: TLabel
-    Left = 58
+    Left = 8
     Top = 46
     Width = 205
     Height = 13
     Caption = 'Developer: Francisco de Assis Dantas Filho'
   end
-  object Label4: TLabel
-    Left = 58
-    Top = 133
-    Width = 53
-    Height = 13
-    Caption = 'IDE: Delphi'
-  end
   object Label5: TLabel
-    Left = 58
+    Left = 8
     Top = 65
     Width = 170
     Height = 13
     Caption = 'Support: assisdantas97@gmail.com'
+  end
+  object Label6: TLabel
+    Left = 8
+    Top = 84
+    Width = 259
+    Height = 13
+    Caption = 'Contrib: https://github.com/assisdantas/portknockwin'
+  end
+  object Button1: TButton
+    Left = 103
+    Top = 121
+    Width = 75
+    Height = 25
+    Caption = 'Close'
+    Default = True
+    TabOrder = 0
+    OnClick = Button1Click
   end
 end

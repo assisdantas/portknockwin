@@ -185,7 +185,7 @@ lbledtName.Text := savedname;
 arqini := TIniFile.Create(dirapp+'addrs.list');
 
 lbledthost.Text := arqini.ReadString(savedname, 'host', 'Não foi possível ler o arquivo');
-lbledtports.Text := arqini.ReadString(savedname, 'host', 'Não foi possível ler o arquivo');
+lbledtports.Text := arqini.ReadString(savedname, 'ports', 'Não foi possível ler o arquivo');
 
 arqini.Free;
 end;
