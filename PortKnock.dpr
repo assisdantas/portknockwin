@@ -2,10 +2,11 @@ program PortKnock;
 
 uses
   Vcl.Forms,
-  uprincipal in 'uprincipal.pas' {frmMain},
+  umain in 'umain.pas' {frmMain},
   Vcl.Themes,
   Vcl.Styles,
-  uabout in 'uabout.pas' {frmabout};
+  uabout in 'uabout.pas' {frmabout},
+  udisplaytext in 'udisplaytext.pas' {frmloadtext};
 
 {$R *.res}
 
@@ -15,5 +16,6 @@ begin
   TStyleManager.TrySetStyle('Turquoise Gray');
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(Tfrmabout, frmabout);
+  Application.CreateForm(Tfrmloadtext, frmloadtext);
   Application.Run;
 end.

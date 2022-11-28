@@ -177,7 +177,7 @@ object frmabout: Tfrmabout
     Top = 27
     Width = 78
     Height = 13
-    Caption = 'Version: 1.0.0.1'
+    Caption = 'Version: 1.0.0.2'
   end
   object Label3: TLabel
     Left = 8
@@ -198,10 +198,18 @@ object frmabout: Tfrmabout
     Top = 84
     Width = 259
     Height = 13
+    Cursor = crHandPoint
     Caption = 'Contrib: https://github.com/assisdantas/portknockwin'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = Label6Click
   end
   object Button1: TButton
-    Left = 103
+    Left = 186
     Top = 121
     Width = 75
     Height = 25
@@ -209,5 +217,23 @@ object frmabout: Tfrmabout
     Default = True
     TabOrder = 0
     OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 105
+    Top = 121
+    Width = 75
+    Height = 25
+    Caption = 'License'
+    TabOrder = 1
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 24
+    Top = 121
+    Width = 75
+    Height = 25
+    Caption = 'Credits'
+    TabOrder = 2
+    OnClick = Button3Click
   end
 end

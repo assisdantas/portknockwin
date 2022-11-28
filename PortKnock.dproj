@@ -108,12 +108,16 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uprincipal.pas">
+        <DCCReference Include="umain.pas">
             <Form>frmMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uabout.pas">
             <Form>frmabout</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="udisplaytext.pas">
+            <Form>frmloadtext</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
